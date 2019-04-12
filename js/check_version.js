@@ -13,18 +13,15 @@ const check = function(jsonUrl) {
 			// #ifdef APP-PLUS
 			if (plus.runtime.version != version) {
 				uni.showModal({
-					title: '新版本已发布，是否立即更新',
-					content: (uni.getSystemInfoSync().platform == 'android') ? '(更新将在后台执行,可下拉状态栏查看)':'',
+					title: '新版本已发布',
+					content: '是否立即更新？',//该项不能为空，否则iOS无法弹出
 					showCancel: true,
 					cancelText: '暂不更新',
-					cancelColor: '#666666',
+					cancelColor: '#999999',
 					confirmText: '立即更新',
 					success: res => {
 						if (res.confirm) {
-							console.log('用户点击确定');
 							plus.runtime.openURL(url);
-						} else if (res.cancel) {
-							console.log('用户点击取消');
 						}
 					}
 				});
