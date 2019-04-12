@@ -38,7 +38,7 @@ git push
 @echo.
 @echo git push completed
 @echo.
-@echo press any key exit
+@echo press any key to exit
 
 pause>nul
 
