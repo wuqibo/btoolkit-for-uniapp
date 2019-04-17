@@ -15,6 +15,7 @@ const chooseImage = function(minSideSize, callback) {
 
 //压缩图片(minSideSize自动付给更小的边，另外一边会按比例缩放)
 const resize = function(imgPath, minSideSize, callback) {
+	// #ifdef APP-PLUS
 	uni.getImageInfo({
 		src: imgPath,
 		success: function(img) {
@@ -52,8 +53,13 @@ const resize = function(imgPath, minSideSize, callback) {
 					showCancel: false
 				})
 			});
+			return;
 		}
 	});
+	return;
+	// #endif
+	console.log('非APP平台无法重定义图片尺寸,将使用原尺寸');
+	callback(imgPath);
 }
 
 export default {
