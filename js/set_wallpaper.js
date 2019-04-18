@@ -4,6 +4,10 @@
 //设置图片设为壁纸（imgUrl支持本地地址和网络http地址）
 const setToWallpaper = function(imgUrl) {
 	// #ifdef APP-PLUS
+	if(uni.getSystemInfoSync().platform != 'android'){
+		console.log('非Android平台不能设置壁纸');
+		return;
+	}
 	plus.gallery.save(imgUrl, function(e) {
 		var WallpaperManager = plus.android.importClass("android.app.WallpaperManager");
 		var Main = plus.android.runtimeMainActivity();
