@@ -13,7 +13,7 @@ const isIOS = function() {
 	return getPlatformName == 'ios';
 }
 
-//是否是iOS端
+//是否是微信开发工具测试端
 const isWeiXinDevTools = function() {
 	return getPlatformName == 'devtools';
 }
