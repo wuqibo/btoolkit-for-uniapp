@@ -1,4 +1,4 @@
-const getDeviceId = function() {
+function getDeviceId() {
 	// #ifdef APP-PLUS
 	return plus.device.uuid;
 	// #endif

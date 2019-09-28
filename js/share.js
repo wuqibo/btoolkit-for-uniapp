@@ -1,7 +1,7 @@
 const providerList = [];
 
 //初始化分享通道
-const initShareChannels = function() {
+function initShareChannels() {
 	uni.getProvider({
 		service: "share",
 		success: (e) => {
@@ -44,7 +44,7 @@ const initShareChannels = function() {
 }
 
 //分享照片
-const share = function(text, imgUrl, link) {
+function share(text, imgUrl, link) {
 	if (this.providerList.length === 0) {
 		uni.showModal({
 			title: "当前无分享渠道!",

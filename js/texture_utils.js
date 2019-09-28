@@ -1,5 +1,5 @@
 //拍一张图片或从相册取图片并等比缩小优化
-const chooseImage = function(minSideSize, callback) {
+function chooseImage(minSideSize, callback) {
 	uni.chooseImage({
 		count: 1,
 		sourceType: ['album', 'camera'],
@@ -14,7 +14,7 @@ const chooseImage = function(minSideSize, callback) {
 
 
 //压缩图片(minSideSize自动付给更小的边，另外一边会按比例缩放)
-const resize = function(imgPath, minSideSize, callback) {
+function resize(imgPath, minSideSize, callback) {
 	// #ifdef APP-PLUS
 	uni.getImageInfo({
 		src: imgPath,

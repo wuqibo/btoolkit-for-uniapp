@@ -1,5 +1,5 @@
 //保存图片并返回本地路径（imgUrl支持本地地址和网络http地址,不仅限于APP平台）
-const saveImageToPhotosAlbum = function(imgUrl, callback) {
+function saveImageToPhotosAlbum(imgUrl, callback) {
 	function saveToPhotosAlbum(localPath) {
 		uni.saveImageToPhotosAlbum({
 			filePath: localPath,

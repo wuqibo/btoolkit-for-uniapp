@@ -1,5 +1,5 @@
 //复制到系统剪贴板
-const copyToSystemClipboard = function(content) {
+function copyToSystemClipboard(content) {
 	switch (uni.getSystemInfoSync().platform) {
 		case 'android':
 			var Context = plus.android.importClass("android.content.Context");
@@ -19,7 +19,7 @@ const copyToSystemClipboard = function(content) {
 }
 
 //从系统剪贴板取值
-const getFromSystemClipboard = function() {
+function getFromSystemClipboard() {
 	switch (uni.getSystemInfoSync().platform) {
 		case 'android':
 			var Context = plus.android.importClass("android.content.Context");
@@ -38,5 +38,6 @@ const getFromSystemClipboard = function() {
 }
 
 export default {
-	copyToSystemClipboard
+	copyToSystemClipboard,
+	getFromSystemClipboard
 }

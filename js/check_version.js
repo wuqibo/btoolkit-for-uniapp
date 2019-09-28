@@ -1,7 +1,7 @@
 //Json文件格式内容：
 //{"version":"1.0.0","url":"http://120.79.197.189:3051/shentongfuzhu_v2.apk"}
 
-const check = function(jsonUrl) {
+function check(jsonUrl) {
 	uni.request({
 		url: jsonUrl + '?random=' + Math.random(),
 		success: (res) => {

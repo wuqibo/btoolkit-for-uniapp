@@ -2,7 +2,7 @@
 //<uses-permission android:name=\"android.permission.SET_WALLPAPER\"/>
 
 //设置图片设为壁纸（imgUrl支持本地地址和网络http地址）
-const setToWallpaper = function(imgUrl) {
+function setToWallpaper(imgUrl) {
 	// #ifdef APP-PLUS
 	if(uni.getSystemInfoSync().platform != 'android'){
 		console.log('非Android平台不能设置壁纸');
