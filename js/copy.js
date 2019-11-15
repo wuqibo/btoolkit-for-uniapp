@@ -6,16 +6,17 @@ function copyToSystemClipboard(content) {
 			var main = plus.android.runtimeMainActivity();
 			var clip = main.getSystemService(Context.CLIPBOARD_SERVICE);
 			plus.android.invoke(clip, "setText", content);
-			break;
+			return true;
 		case 'ios':
 			var UIPasteboard = plus.ios.importClass("UIPasteboard");
 			var generalPasteboard = UIPasteboard.generalPasteboard();
 			generalPasteboard.setValueforPasteboardType(content, "public.utf8-plain-text");
-			break;
+			return true;
 		default:
 			console.log('仅发布到APP才能复制到系统剪贴板');
 			break;
 	}
+	return false;
 }
 
 //从系统剪贴板取值
