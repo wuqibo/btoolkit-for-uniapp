@@ -6,13 +6,14 @@ export default {
 		uni.request({
 			url: jsonUrl + '?random=' + Math.random(),
 			success: (res) => {
-				console.log(JSON.stringify(res));
-				let version = res.data.version;
+				let newVersion = res.data.version;
 				let url = res.data.url;
-				console.log('version:' + version);
+				console.log('newVersion:' + newVersion);
 				console.log('url:' + url);
 				// #ifdef APP-PLUS
-				if (plus.runtime.version != version) {
+				let currVersion = plus.runtime.version;
+				console.log('currVersion:' + currVersion);
+				if (currVersion != newVersion) {
 					uni.showModal({
 						title: '新版本已发布',
 						content: '是否立即更新？',//该项不能为空，否则iOS无法弹出
@@ -28,11 +29,14 @@ export default {
 							}
 						}
 					});
+				}else{
+					onCancelCallback();
 				}
 				// #endif
 			},
 			fail: (err) => {
 				console.error(JSON.stringify(err));
+				onCancelCallback();
 			}
 		});
 	}
